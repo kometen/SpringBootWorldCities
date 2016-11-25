@@ -23,7 +23,7 @@ $ curl -s http://localhost:8080/cities/52.516666/13.4/250 |grep -o name_|wc -l
 
 $ curl -s http://localhost:8080/cities/52.516666/13.4/250 |wc
 
-       0    7477 4344434
+   0    7477 4344434
 
 [1]: https://dl.dropboxusercontent.com/u/2729115/worldcities.zip
 [2]: https://github.com/kometen/jooby-worldcities
