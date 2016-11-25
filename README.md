@@ -11,16 +11,16 @@ On my macbook pro 2012 retina with an i7 cpu is takes 1.7 secs. to locate all ci
 
 This is after I have rebooted the laptop. But also just one run. Approx. 4.1 MB is returned.
 
-$ time curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null         
+$ time curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null<br />
 curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null  0.01s user 0.01s system 1% cpu 1.705 total
 
-$ time curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null
+$ time curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null<br />
 curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null  0.01s user 0.01s system 21% cpu 0.073 total
 
-$ curl -s http://localhost:8080/cities/52.516666/13.4/250 |grep -o name_|wc -l
+$ curl -s http://localhost:8080/cities/52.516666/13.4/250 |grep -o name_|wc -l<br />
 27896
 
-$ curl -s http://localhost:8080/cities/52.516666/13.4/250 |wc
+$ curl -s http://localhost:8080/cities/52.516666/13.4/250 |wc<br />
 0    7477 4344434
 
 [1]: https://dl.dropboxusercontent.com/u/2729115/worldcities.zip
