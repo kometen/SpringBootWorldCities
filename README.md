@@ -18,12 +18,10 @@ $ time curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null
 curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null  0.01s user 0.01s system 21% cpu 0.073 total
 
 $ curl -s http://localhost:8080/cities/52.516666/13.4/250 |grep -o name_|wc -l
-
-   27896
+27896
 
 $ curl -s http://localhost:8080/cities/52.516666/13.4/250 |wc
-
-   0    7477 4344434
+0    7477 4344434
 
 [1]: https://dl.dropboxusercontent.com/u/2729115/worldcities.zip
 [2]: https://github.com/kometen/jooby-worldcities
