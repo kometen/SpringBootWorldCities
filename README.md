@@ -1,7 +1,7 @@
 This is a simple rest-api written with the [Spring Boot][3] Java framework. It returns cities/locations within a radius
 specified by latitude and longitude in json-format.
 
-Example, find locations with 250 km. of Berlin, Germany. Time measured is after reboot and *only* one run.
+Example, find locations within 250 km. of Berlin, Germany. Time measured is after reboot and *only* one run.
 
 $ time curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null<br />
 curl -s http://localhost:8080/cities/52.516666/13.4/250 > /dev/null  0.01s user 0.01s system 1% cpu 1.705 total
