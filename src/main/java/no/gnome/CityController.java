@@ -1,6 +1,5 @@
 package no.gnome;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,16 +98,15 @@ public class CityController {
         Float lng_north = (float) longitude_north.getLongitude();
         
         List<City> cities = cityInterface.findByLatitudeBetweenAndLongitudeBetween(lat_west, lat_east, lng_south, lng_north); 
-
-        // Iterate over the list and remove locations outside the radius.
-        for (Iterator<City> iterator = cities.iterator(); iterator.hasNext();) {
-            City city = iterator.next(); 
-            LatLng p = new LatLng(city.getLatitude(), city.getLongitude());
+        
+        cities.removeIf(s -> {
+            LatLng p = new LatLng(s.getLatitude(), s.getLongitude());
             double d = LatLngTool.distance(center, p, LengthUnit.KILOMETER);
             if (d > radius) {
-                iterator.remove();
+                return true;
             }
-        }
+            return false;
+        });
         
         return cities;
     }
