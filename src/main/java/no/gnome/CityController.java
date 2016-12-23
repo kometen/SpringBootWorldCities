@@ -1,6 +1,7 @@
 package no.gnome;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -99,14 +100,16 @@ public class CityController {
         
         List<City> cities = cityInterface.findByLatitudeBetweenAndLongitudeBetween(lat_west, lat_east, lng_south, lng_north); 
         
-        cities.removeIf(s -> {
-            LatLng p = new LatLng(s.getLatitude(), s.getLongitude());
+        Predicate<City> outside = (city) -> {
+            LatLng p = new LatLng(city.getLatitude(), city.getLongitude());
             double d = LatLngTool.distance(center, p, LengthUnit.KILOMETER);
             if (d > radius) {
                 return true;
             }
             return false;
-        });
+        };
+        
+        cities.removeIf(outside);
         
         return cities;
     }
